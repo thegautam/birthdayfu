@@ -1,5 +1,7 @@
 <ul>
-<% @friends.each do |friend| %>
-<%= friend['name'] %><br/>
-<% end %>
+  <% @friends.each do |friend| %>
+     <%= friend['name'] %>
+     <%= friend['birthday'] %>
+     <br/>
+  <% end %>
 </ul>

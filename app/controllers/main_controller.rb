@@ -9,7 +9,11 @@ def me
 end
 
 def friends
-  @friends = rest_graph.get('me/friends')['data']
+  @friends = []
+  friends_bare = rest_graph.get('me/friends')['data']
+  friends_bare.each do |friend_bare|
+    @friends << rest_graph.get(friend_bare['id'])
+  end
 
   render :action => 'friends'
 end

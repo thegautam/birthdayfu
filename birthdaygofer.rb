@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'omniauth/oauth'
+require 'fbgraph'
 
 enable :sessions
 
@@ -15,6 +16,10 @@ use OmniAuth::Builder do
 end
 
 get '/' do
+
+  if session['fb_token'] and not client
+  end
+
     erb :index
 end
 
@@ -26,6 +31,10 @@ get '/auth/facebook/callback' do
   session['fb_auth'] = request.env['omniauth.auth']
   session['fb_token'] = session['fb_auth']['credentials']['token']
   session['fb_error'] = nil
+  session['client'] = FBGraph::Client.new(:client_id => APP_ID,
+                                      :secret_id => APP_SECRET,
+                                      :token => session['fb_token'])
+
   redirect '/'
 end
 
@@ -39,6 +48,9 @@ end
 get '/logout' do
   clear_session
   redirect '/'
+end
+
+def client
 end
 
 def clear_session

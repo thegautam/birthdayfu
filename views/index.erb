@@ -6,6 +6,5 @@
   <a href='auth/facebook'><img src='images/fb_login_button.png' alt='Login to Facebook'></a>
 <% end %>
 
-<h3><%= 'Hello, ' + session['fb_auth']['user_info']['first_name'] + ', ' if
-session['fb_token'] %>Never miss a birthday.</h3>
-
+<h3><%= 'Hello, ' + session['client']  + ', ' if
+session['client'] %>Never miss a birthday.</h3>

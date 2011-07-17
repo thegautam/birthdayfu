@@ -4,6 +4,7 @@ include RestGraph::RailsUtil
 
 before_filter :filter_setup_rest_graph
 before_filter :get_friends, :only => [:friends, :paradox]
+before_filter :date_consts, :only => [:paradox]
 
 def me
   render :text => rest_graph.get('?batch=[{"method":"GET", "relative_url":"me"}]').inspect
@@ -17,7 +18,7 @@ def paradox
   @matches = 0
   @total = 0
 
-  while @total < 100 do
+  while @total < 1 do
     @dated_friends = []
     @bday_hashes = Hash.new
     @exists = false
@@ -48,6 +49,11 @@ private
 def get_friends
   @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday'})['data'] \
     .find_all {|f| not f['birthday'] == nil}
+end
+
+def date_consts
+  # Jan, Feb ...
+  @months = [].fill(0,12) { |i| Date.civil (y=1,m=i+1).strftime('%b') }
 end
 
 def filter_setup_rest_graph

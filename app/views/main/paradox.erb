@@ -1,4 +1,4 @@
-<ul>
+<!--ul>
   <% @dated_friends.each do |friend| %>
      <%= friend['name'] %>
      <%= friend['birthday'] %>
@@ -13,5 +13,10 @@
 
   <p>Matches <%=@matches%></p>
   <p>  Total <%=@total%></p>
+</ul-->
 
-</ul>
+<table>
+  <% @months.each do |month| %>
+     <tr><p><%= month %></p></tr>
+  <% end %>
+<table>

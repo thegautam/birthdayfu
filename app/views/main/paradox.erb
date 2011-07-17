@@ -1,0 +1,18 @@
+<ul>
+  <% @dated_friends.each do |friend| %>
+     <%= friend['name'] %>
+     <%= friend['birthday'] %>
+     <%= friend['bday'] %>
+     <br/>
+  <% end %>
+
+  <% @bday_hashes.each do |key, value| %>
+     <%= "#{key} => #{value}" %>
+     <br/>
+  <% end %>
+
+  <% if @exists %>
+     Match found.
+  <% end %>
+
+</ul>

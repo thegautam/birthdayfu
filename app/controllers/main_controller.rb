@@ -54,6 +54,7 @@ end
 def date_consts
   # Jan, Feb ...
   @months = [].fill(0,12) { |i| Date.civil (y=1,m=i+1).strftime('%b') }
+  @days = [].fill(0,31) { |i| i+1 }
 end
 
 def filter_setup_rest_graph

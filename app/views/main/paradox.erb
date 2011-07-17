@@ -16,7 +16,26 @@
 </ul-->
 
 <table>
+  <% # Top row with all days.  %>
+  <tr>
+    <% # Top left empty cell.  %>
+    <td/>
+    <% # All days.  %>
+    <% @days.each do |day| %>
+       <td><%= day %></td>
+    <% end %>
+  </tr>
+
+  <% # One row per month.  %>
   <% @months.each do |month| %>
-     <tr><p><%= month %></p></tr>
+     <tr>
+       <% # First column with names.%>
+       <td><p><%= month %></p><td>
+
+       <% # Subsequent empty columns.%>
+       <% @days.each do |day| %>
+          <td></td>
+       <% end %>
+     </tr>
   <% end %>
 <table>

@@ -5,15 +5,11 @@ include RestGraph::RailsUtil
 before_filter :filter_setup_rest_graph
 
 def me
-    render :text => rest_graph.get('me').inspect
+  render :text => rest_graph.get('?batch=[{"method":"GET", "relative_url":"me"}]').inspect
 end
 
 def friends
-  @friends = []
-  friends_bare = rest_graph.get('me/friends')['data']
-  friends_bare.each do |friend_bare|
-    @friends << rest_graph.get(friend_bare['id'])
-  end
+  @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday'})['data']
 
   render :action => 'friends'
 end

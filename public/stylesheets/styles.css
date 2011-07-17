@@ -1,0 +1,14 @@
+
+body
+{
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  width: 30px;
+  text-align: center;
+  border: 1px solid #EEEEEE;
+}

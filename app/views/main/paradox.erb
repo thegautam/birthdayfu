@@ -6,10 +6,15 @@
   <div class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></div>
     <% @days.each do |day| %>
       <% if not @bday_index["#{mon}-#{day}"] == nil  %>
-          <%= day %>
-          <% @bday_index["#{mon}-#{day}"].each do |friend| %>
-             <%= friend['name'] %>           
-          <% end %>
-      <% end %>  
+        <%= "[" if @bday_index["#{mon}-#{day}"].count > 1 %>
+        <%= day %>
+        <% @bday_index["#{mon}-#{day}"].each do |friend| %>
+           <a href='<%= friend['link'] %>' />
+             <img src='<%= friend['picture'] %>'/>
+             <%= friend['name'] %>
+           </a>
+        <% end %>
+        <%= "]" if @bday_index["#{mon}-#{day}"].count > 1 %>
+      <% end %>
     <% end %>
 <% end %>

@@ -14,22 +14,30 @@ def friends
 end
 
 def paradox
-  @dated_friends = []
-  @bday_hashes = Hash.new
-  @exists = false
+  @matches = 0
+  @total = 0
 
-  @friends.sample(23).each do |friend|
-    date = Date.parse(friend['birthday'])
-    friend['bday'] = date
-    @dated_friends << friend
+  while @total < 100 do
+    @dated_friends = []
+    @bday_hashes = Hash.new
+    @exists = false
+    @friends.sample(23).each do |friend|
+      date = Date.parse(friend['birthday'])
+      friend['bday'] = date
+      @dated_friends << friend
 
-    key = "#{date.day}/#{date.mon}"
-    if @bday_hashes.key?(key)
-      @bday_hashes[key] << ", #{friend['name']}"
-      @exists = true
-    else
-      @bday_hashes[key] = friend['name']
+      key = "#{date.day}/#{date.mon}"
+      if @bday_hashes.key?(key)
+        @bday_hashes[key] << ", #{friend['name']}"
+        @exists = true
+      else
+        @bday_hashes[key] = friend['name']
+      end
     end
+    if @exists
+      @matches = @matches + 1
+    end
+    @total = @total + 1
   end
 
   render :action => 'paradox'

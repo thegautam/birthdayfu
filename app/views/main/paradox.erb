@@ -1,3 +1,15 @@
-<% @months.each do |month| %>
-    <div class="mon"><%= month %></div>
+<div class="result">
+  <%= @matches %> runs of <%= @total %> had a birthday clash.
+</div>
+
+<% @months.each do |mon| %>
+  <div class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></div>
+    <% @days.each do |day| %>
+      <% if not @bday_index["#{mon}-#{day}"] == nil  %>
+          <%= day %>
+          <% @bday_index["#{mon}-#{day}"].each do |friend| %>
+             <%= friend['name'] %>           
+          <% end %>
+      <% end %>  
+    <% end %>
 <% end %>

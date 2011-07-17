@@ -9,7 +9,8 @@ def me
 end
 
 def friends
-  @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday'})['data']
+  @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday'})['data'] \
+    .find_all {|f| not f['birthday'] == nil}
 
   render :action => 'friends'
 end

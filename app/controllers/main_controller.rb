@@ -55,8 +55,9 @@ def get_friends
 end
 
 def date_consts
-  # Jan, Feb ...
+  # Jan, Feb ... Dec
   @months = [].fill(0,12) { |i| i+1 }
+  # 1, 2 ... 31
   @days = [].fill(0,31) { |i| i+1 }
 end
 

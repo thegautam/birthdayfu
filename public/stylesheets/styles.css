@@ -3,6 +3,14 @@ body {
 }
 
 div.mon {
-  font-family: Helvetica;
-  font-size: 20px;
+  font-family: Crushed,cursive;
+  font-size: 70px;
+  height: 70px;
+}
+
+div.profile {
+  font-family: Crushed,cursive;
+  height: 40px;
+  width: 40px;
+  display: inline
 }

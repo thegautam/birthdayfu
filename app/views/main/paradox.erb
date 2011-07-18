@@ -3,18 +3,18 @@
 </div>
 
 <% @months.each do |mon| %>
-  <div class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></div>
+  <div class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %>
     <% @days.each do |day| %>
       <% if not @bday_index["#{mon}-#{day}"] == nil  %>
         <%= "[" if @bday_index["#{mon}-#{day}"].count > 1 %>
         <%= day %>
         <% @bday_index["#{mon}-#{day}"].each do |friend| %>
-           <a href='<%= friend['link'] %>' />
-             <img src='<%= friend['picture'] %>'/>
-             <%= friend['name'] %>
-           </a>
+           <div class="profile" title="<%= friend['name'] %>">
+             <a href='<%= friend['link'] %>' /><img src='<%= friend['picture'] %>'/></a>
+           </div>
         <% end %>
         <%= "]" if @bday_index["#{mon}-#{day}"].count > 1 %>
       <% end %>
     <% end %>
+  </div>
 <% end %>

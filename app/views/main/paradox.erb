@@ -1,10 +1,11 @@
 <div class="left">
 
 <h1>Birthday Paradox</h1>
-<h2><%= session["matches"].to_s + " of " + session["total"].to_s %> matches</h2>
+Score:
+<h2><%= "#{session["matches"]} of #{session["total"]} = #{@pct}%" %></h2>
 
-<%= link_to "Run again", url_for("paradox"), :class => "lurl"  %>
-<%= link_to "Run 100 times", url_for("paradox"), :class => "lurl"  %>
+<%= link_to "Run again", paradox_path, :class => "lurl"  %>
+<%= link_to "Run 100 times", paradox_path(:runs => 100), :class => "lurl"  %>
 
 <% @bday_index.sort.each do |mon,days| %>
   <% days.sort.each do |day,friends| %>

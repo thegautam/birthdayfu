@@ -1,6 +1,7 @@
 Birthdaygofer::Application.routes.draw do
 
 match ':controller/:action'
+match 'paradox/' => 'Main#paradox', :as => 'paradox'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

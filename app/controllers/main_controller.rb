@@ -17,7 +17,10 @@ end
 def paradox
   @matches = 0
   @total = 0
-  $runs = 1
+  $runs = params[:runs].presence.to_i || 1
+  if $runs <= 0
+    $runs = 1
+  end
   $magic = 23
 
   while @total < $runs do
@@ -50,6 +53,7 @@ def paradox
 
   session["matches"] = session["matches"] +  @matches
   session["total"] = session["total"] + @total
+  @pct = session["matches"] * 100 / session["total"]
 
   render :action => 'paradox'
 end
@@ -69,7 +73,7 @@ def date_consts
 end
 
 def filter_setup_rest_graph
-    rest_graph_setup(:auto_authorize => true)
+    rest_graph_setup(:auto_authorize => true, :scope => 'email, status_update, publish_stream, friends_birthday, offlineaccess')
 end
 
 end

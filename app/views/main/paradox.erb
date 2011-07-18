@@ -1,4 +1,10 @@
 <div class="left">
+
+<h1>Birthday Paradox</h1>
+
+<%= link_to "Run again", url_for("paradox"), :class => "lurl"  %>
+<%= link_to "Run 100 times", url_for("paradox"), :class => "lurl"  %>
+
 <% @bday_index.sort.each do |mon,days| %>
   <% days.sort.each do |day,friends| %>
   <% if friends.count > 1 %>
@@ -14,7 +20,8 @@
   <% end %>
   <% end %>
 <% end %>
-<%= "No shared birthdays in this group." if not @exists %>
+<p><%= "No shared birthdays in this group." if not @exists %></p>
+
 </div>
 
 <div class="result">

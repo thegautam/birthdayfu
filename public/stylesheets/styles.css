@@ -47,3 +47,10 @@ span.profile {
   vertical-align: middle;
   margin: 0px;
 }
+
+a.lurl {
+  color: #FFFFFF;
+  background-color: #34ACAF;
+  padding: 6px;
+  text-decoration: none;
+}

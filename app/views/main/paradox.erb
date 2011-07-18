@@ -1,5 +1,20 @@
 <div class="left">
-  <%= @matches %> runs of <%= @total %> had a birthday clash.
+<% @bday_index.sort.each do |mon,days| %>
+  <% days.sort.each do |day,friends| %>
+  <% if friends.count > 1 %>
+    <% @exists = true %>
+    <p>
+    <% friends.each_index do |fi| %>
+        <%= "and " if fi == friends.count-1 %>
+        <%= friends[fi]['name']%>
+        <%= ", " if fi < friends.count-2 %>
+    <% end %>
+    happen to share a birthday.
+    </p>
+  <% end %>
+  <% end %>
+<% end %>
+<%= "No shared birthdays in this group." if not @exists %>
 </div>
 
 <div class="result">

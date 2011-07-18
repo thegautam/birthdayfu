@@ -1,15 +1,15 @@
-
 body {
-  height: 1024px;
+  font-family: Crushed,cursive;
 }
 
 div.left {
-}
-
-div.left {
+  font-size: 25px;
   float: left;
-  height: 100%;
+  height: 830px;
   width: 250px;
+  background-color: #9D538E;
+  color: #FFFFFF;
+  padding: 10px;
 }
 
 div.result {
@@ -18,7 +18,6 @@ div.result {
 }
 
 div.mon {
-  font-family: Crushed,cursive;
   font-size: 70px;
   height: 70px;
   vertical-align: middle;
@@ -39,7 +38,8 @@ span.day {
 }
 
 span.match {
-  color: #FF0000;
+  background-color: #9D538E;
+  color: #FFFFFF;
 }
 
 span.profile {

@@ -26,15 +26,19 @@ def paradox
 
     @bday_index = Hash.new
     @friends.sample($magic).each do |friend|
-      date = Date.parse(friend['birthday'])
-      key = "#{date.mon}-#{date.day}"
-      if @bday_index[key] == nil
-        @bday_index[key] = []
+      d = Date.parse(friend['birthday'])
+
+      if @bday_index[d.mon] == nil
+        @bday_index[d.mon] = Hash.new
+      end
+
+      if @bday_index[d.mon][d.day] == nil
+        @bday_index[d.mon][d.day] = []
       else
         exists = true
       end
 
-      @bday_index[key] << friend
+      @bday_index[d.mon][d.day] << friend
     end
 
     if exists

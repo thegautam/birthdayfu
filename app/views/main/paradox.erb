@@ -2,20 +2,18 @@
   <%= @matches %> runs of <%= @total %> had a birthday clash.
 </div>
 
-<% @months.each do |mon| %>
+<% @bday_index.sort.each do |mon,days| %>
   <div class="mon">
     <span class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></span>
-    <% @days.each do |day| %>
-      <% if not @bday_index["#{mon}-#{day}"] == nil  %>
-        <span <%= "class=\'match\'" if @bday_index["#{mon}-#{day}"].count > 1 %>>
+    <% days.sort.each do |day,friends| %>
+        <span <%= "class=\'match\'" if friends.count > 1 %>>
         <span class="day"><%= day %></span>
-        <% @bday_index["#{mon}-#{day}"].each do |friend| %>
+        <% friends.each do |friend| %>
            <span class="profile" title="<%= friend['name'] %>">
              <a href='<%= friend['link'] %>' /><img src='<%= friend['picture'] %>'/></a>
            </span>
         <% end %>
         </span>
-      <% end %>
     <% end %>
   </div>
 <% end %>

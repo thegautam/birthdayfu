@@ -48,6 +48,9 @@ def paradox
     @total = @total + 1
   end
 
+  session["matches"] = session["matches"] +  @matches
+  session["total"] = session["total"] + @total
+
   render :action => 'paradox'
 end
 

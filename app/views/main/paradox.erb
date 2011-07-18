@@ -1,6 +1,7 @@
 <div class="left">
 
 <h1>Birthday Paradox</h1>
+<h2><%= session["matches"].to_s + " of " + session["total"].to_s %> matches</h2>
 
 <%= link_to "Run again", url_for("paradox"), :class => "lurl"  %>
 <%= link_to "Run 100 times", url_for("paradox"), :class => "lurl"  %>

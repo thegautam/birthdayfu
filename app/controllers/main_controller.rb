@@ -18,7 +18,7 @@ def paradox
   @matches = 0
   @total = 0
   $runs = params[:runs].presence.to_i || 1
-  if $runs <= 0
+  if $runs <= 0 || $runs > 100
     $runs = 1
   end
   $magic = 23

@@ -29,7 +29,7 @@ Score:
 <div class="result">
 <% @bday_index.sort.each do |mon,days| %>
   <div class="mon">
-    <span class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></span>
+    <span class="mon"><%= Date.civil(1,mon).strftime('%b') %></span>
     <% days.sort.each do |day,friends| %>
         <span <%= "class=\'match\'" if friends.count > 1 %>>
         <span class="day"><%= day %></span>

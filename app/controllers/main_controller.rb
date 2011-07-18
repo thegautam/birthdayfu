@@ -74,7 +74,7 @@ def date_consts
 end
 
 def filter_setup_rest_graph
-    rest_graph_setup(:auto_authorize => true, :scope => 'email, status_update, publish_stream, friends_birthday, offlineaccess')
+    rest_graph_setup(:auto_authorize => true, :auto_authorize_scope => 'email, status_update, publish_stream, friends_birthday, offline_access')
 end
 
 end

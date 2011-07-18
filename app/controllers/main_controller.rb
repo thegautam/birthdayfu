@@ -1,6 +1,7 @@
 class MainController < ApplicationController
 
 include RestGraph::RailsUtil
+include Date
 
 before_filter :filter_setup_rest_graph
 before_filter :get_friends, :only => [:friends, :paradox]

@@ -52,8 +52,8 @@ def paradox
     @total = @total + 1
   end
 
-  session["matches"] = session["matches"] +  @matches
-  session["total"] = session["total"] + @total
+  session["matches"] = (session["matches"].presence || 0) +  @matches
+  session["total"] = session["total"].presence || 0) + @total
   @pct = session["matches"] * 100 / session["total"]
 
   render :action => 'paradox'

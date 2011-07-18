@@ -29,6 +29,7 @@ def paradox
 
     @bday_index = Hash.new
     @friends.sample($magic).each do |friend|
+      logger.info friend['birthday']
       d = Date.parse(friend['birthday'])
 
       if @bday_index[d.mon] == nil

@@ -1,7 +1,6 @@
 class MainController < ApplicationController
 
 include RestGraph::RailsUtil
-include Date
 
 before_filter :filter_setup_rest_graph
 before_filter :get_friends, :only => [:friends, :paradox]
@@ -31,7 +30,7 @@ def paradox
     @bday_index = Hash.new
     @friends.sample($magic).each do |friend|
       logger.info friend['birthday']
-      d = Date.parse(friend['birthday'])
+      d = Date.parse(friend['birthday'].gsub('/','-'))
 
       if @bday_index[d.mon] == nil
         @bday_index[d.mon] = Hash.new

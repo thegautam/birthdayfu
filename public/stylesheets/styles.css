@@ -6,11 +6,29 @@ div.mon {
   font-family: Crushed,cursive;
   font-size: 70px;
   height: 70px;
+  vertical-align: middle;
 }
 
-div.profile {
+span.mon {
+  margin-left: 20px;
+  display: inline-block;
+  width: 100px; 
+}
+
+span.day {
+  display: inline-block;
+  width: 60px;
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+}
+
+span.match {
+  color: #FF0000;
+}
+
+span.profile {
   font-family: Crushed,cursive;
-  height: 40px;
-  width: 40px;
-  display: inline
+  vertical-align: middle;
+  margin: 0px;
 }

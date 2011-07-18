@@ -1,7 +1,8 @@
-<div class="result">
+<div class="left">
   <%= @matches %> runs of <%= @total %> had a birthday clash.
 </div>
 
+<div class="result">
 <% @bday_index.sort.each do |mon,days| %>
   <div class="mon">
     <span class="mon"><%= Date.civil (y=1,m=mon).strftime('%b') %></span>
@@ -17,3 +18,4 @@
     <% end %>
   </div>
 <% end %>
+</div>

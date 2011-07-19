@@ -18,9 +18,8 @@ def paradox
   @matches = 0
   @total = 0
   $runs = params[:runs].presence.to_i || 1
-  if $runs <= 0 || $runs > 100
-    $runs = 1
-  end
+  $runs = $runs <= 0 ? 1 : $runs
+  $runs = $runs > 100 ? 100 : $runs
   $magic = 23
 
   while @total < $runs do
@@ -29,7 +28,6 @@ def paradox
 
     @bday_index = Hash.new
     @friends.sample($magic).each do |friend|
-      logger.info friend['birthday']
       d = Date.strptime(friend['birthday'], '%m/%d') rescue Date.strptime(friend['birthday'], '%m/%d/%Y')
 
       if @bday_index[d.mon] == nil
@@ -62,6 +60,7 @@ end
 private
 
 def get_friends
+  logger.info rest_graph.get('me')['data']['name'] + "logged in."
   @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday, link, picture'})['data'] \
     .find_all {|f| not f['birthday'] == nil}
 end

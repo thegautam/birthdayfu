@@ -6,4 +6,4 @@ development:
 production:
     app_id: '148825938527739'
     secret: '2e6a5458f3abb2038088108ecf995eb6'
-    callback_host: 'birthdaygofer.heroku.com'
+    callback_host: 'birthdayfu.heroku.com'

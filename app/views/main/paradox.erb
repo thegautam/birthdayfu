@@ -13,9 +13,7 @@ Score:
     <% @exists = true %>
     <p>
     <% friends.each_index do |fi| %>
-        <%= "and " if fi == friends.count-1 %>
-        <%= friends[fi]['name']%>
-        <%= ", " if fi < friends.count-2 %>
+        <%= "and " if fi == friends.count-1 %><%= friends[fi]['name']%><%= ", " if fi < friends.count-2 %>
     <% end %>
     happen to share a birthday.
     </p>

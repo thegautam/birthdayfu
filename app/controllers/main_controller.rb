@@ -74,7 +74,10 @@ def date_consts
 end
 
 def filter_setup_rest_graph
-    rest_graph_setup(:write_session => true, :auto_authorize => true, :auto_authorize_scope => 'friends_birthday')
+  if not request.host.downcase.end_with? 'conaytus.com'
+    redirect_to 'http://birthdayfu.conaytus.com'
+  end
+  rest_graph_setup(:write_session => true, :auto_authorize => true, :auto_authorize_scope => 'friends_birthday')
 end
 
 end

@@ -60,6 +60,7 @@ end
 private
 
 def get_friends
+  logger.info rest_graph.get('me')['name'] + " ran a test."
   @friends = rest_graph.get('me/friends', {'fields' => 'name, birthday, link, picture'})['data'] \
     .find_all {|f| not f['birthday'] == nil}
 end

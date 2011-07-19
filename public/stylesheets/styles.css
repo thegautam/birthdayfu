@@ -12,21 +12,15 @@ div.left {
   padding: 10px;
 }
 
-div.result {
-  border-left: solid 2px black;
-  display: inline;
-}
-
 div.mon {
   font-size: 70px;
   height: 70px;
-  vertical-align: middle;
 }
 
 span.mon {
   margin-left: 20px;
   display: inline-block;
-  width: 100px; 
+  width: 100px
 }
 
 span.day {
